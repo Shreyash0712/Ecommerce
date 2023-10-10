@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Bazaar</title>
+    <link rel = "stylesheet" type = "text/css" href = '{% static "css/main.css" %}'>
+    <link rel="icon" type="image/x-icon" href="{% static "images/logo.png" %}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url "store" %}" style = "padding : 10px"><img src="{% static "images/logo.png" %}" alt="" height = "60px"></a>
+        <div class="nav-left">
+            <a href="{% url "store" %}">Store</a>
+            <a href="{% url "about" %}">About</a>
+            <a href="{% url "contact" %}">Contact Us</a>
+        <div>
+        
+        <div class="nav-right">
+            <a href="{% url "cart" %}" style = "padding : 12px"><img src="{% static "images/cart.png" %}" alt="" height = "45px"></a>
+            <a href="{% url "login" %}">Login</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <br>
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
