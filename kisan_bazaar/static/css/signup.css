@@ -1,0 +1,11 @@
+.signup{
+    margin-top: 10%;
+    margin-left: 2%;
+}
+.signup>label{
+    font-size: x-small;
+}
+.signup>a{
+    color: black;
+    font-size: x-small;
+}

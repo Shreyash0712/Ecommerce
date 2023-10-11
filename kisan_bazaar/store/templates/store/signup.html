@@ -1,0 +1,18 @@
+{% extends "store/main.html" %}
+{% load static %}
+{% block content %}
+<link rel = "stylesheet" type = "text/css" href = '{% static "css/signup.css" %}'>
+<form method="POST" class="signup" action="">
+    {% csrf_token %}
+    <label for="username">Create a username: </label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="email">Enter an email: </label><br>
+    <input type="email" id="email" name="email"><br>
+    <label for="pass1">Create a password: </label><br>
+    <input type="password" id="pass1" name="pass1"><br>
+    <label for="pass2">Confirm password: </label><br>
+    <input type="password" id="pass2" name="pass2"><br>
+    <button type="submit">Sign Up</button><br>
+    <a href="{% url 'signin'%}">Already have an account? Login</a>
+</form>
+{% endblock content %}

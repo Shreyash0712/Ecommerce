@@ -5,28 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kisan Bazaar</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
     <link rel = "stylesheet" type = "text/css" href = '{% static "css/main.css" %}'>
     <link rel="icon" type="image/x-icon" href="{% static "images/logo.png" %}">
 </head>
 <body>
-    <div class="navbar">
-        <a href="{% url "store" %}" style = "padding : 10px"><img src="{% static "images/logo.png" %}" alt="" height = "60px"></a>
-        <div class="nav-left">
-            <a href="{% url "store" %}">Store</a>
-            <a href="{% url "about" %}">About</a>
-            <a href="{% url "contact" %}">Contact Us</a>
-        <div>
-        
-        <div class="nav-right">
-            <a href="{% url "cart" %}" style = "padding : 12px"><img src="{% static "images/cart.png" %}" alt="" height = "45px"></a>
-            <a href="{% url "login" %}">Login</a>
-        </div>
-    </div>
+    <nav class="nav">
+        <i class="uil uil-bars navOpenBtn"></i>
+        <img src="{% static "images/logo.png"%}" alt="" height="50px" id="logo">
+        <a href="{% url "store" %}" class="logo">Kisan Bazaar</a>
+        <ul class="nav-links">
+          <i class="uil uil-times navCloseBtn"></i>
+          <li> <a href="{% url "store" %}">Store</a></li>
+          {% comment %} <li><a href="#">Products</a></li> {% endcomment %}
+          <li><a href="{% url "cart" %}">Cart</a></li>
+          <li><a href="{% url "about" %}">About Us</a></li>
+          <li><a href="{% url "contact" %}">Contact Us</a></li>
+          
+          {% if user.is_authenticated %}<li><a href="{% url "signout" %}">Logout</a></li>
+          {% else %}<li><a href="{% url "signup" %}">Login</a></li>{% endif %}
 
+        </ul>
+        <i class="uil uil-search search-icon" id="searchIcon"></i>
+        <div class="search-box">
+        <i class="uil uil-search search-icon"></i>
+        <input type="text" placeholder="Search here..." />
+        </div>
+    </nav>
     <div class="container">
         <br>
         {% block content %}
         {% endblock content %}
     </div>
+    <script src="{% static "js/main.js" %}"></script>
 </body>
 </html>
